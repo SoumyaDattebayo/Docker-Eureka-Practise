@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: eureka-serve
+  cloud:
+    netflix:
+      eureka:
+        client:
+          registerWithEureka: false
+          fetchRegistry: false
+        server:
+          enableSelfPreservation: false
+        eureka:
+          instance:
+            hostname: eureka-server
+            preferIpAddress: true
+          server:
+            evictionIntervalTimerInMs: 30000
+            renewalPercent: 0.85
+            renewalThreshold: 0.75
+
+server:
+  port: 8761
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          netflix:
+            eureka:
+              server: INFO
+    com:
+      netflix:
+        eureka: INFO
+  pattern:
+    console: "%msg%n"
+
